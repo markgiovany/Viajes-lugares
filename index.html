@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paquetes a Estados Unidos</title>
+
+  
+  <style>
+   :root{
+  --navy:#24214f;
+  --pink:#d92b53;
+  --text:#1f2230;
+  --muted:#686b7f;
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --border:#e3e5ef;
+  --shadow:0 14px 40px rgba(24,27,70,.08);
+  --shadow-soft:0 8px 24px rgba(24,27,70,.06);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.topbar{
+  background:var(--navy);
+  color:#fff;
+  padding:8px 18px;
+  font-size:12px;
+  display:flex;
+  justify-content:flex-end;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.nav{
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.nav-inner{
+  max-width:1440px;
+  margin:0 auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+  font-weight:700;
+  line-height:1;
+  white-space:nowrap;
+}
+
+.brand .years{
+  font-size:24px;
+  color:var(--pink);
+}
+
+.brand .years-txt{
+  font-size:14px;
+  color:var(--pink);
+}
+
+.brand .name{
+  font-size:22px;
+  color:var(--pink);
+}
+
+.nav-links{
+  display:none;
+  align-items:center;
+  gap:22px;
+  color:var(--navy);
+  font-weight:700;
+  font-size:14px;
+}
+
+.nav-links span{
+  cursor:pointer;
+  opacity:.9;
+}
+
+.nav-links span:hover{
+  opacity:1;
+}
+
+.nav-actions{
+  display:none;
+  align-items:center;
+  gap:14px;
+  white-space:nowrap;
+  color:var(--navy);
+  font-weight:700;
+  font-size:14px;
+}
+
+.btn-consulte{
+  background:var(--pink);
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  padding:12px 20px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:var(--shadow-soft);
+}
+
+.mobile-menu{
+  width:46px;
+  height:46px;
+  border:1px solid var(--border);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--navy);
+  font-size:22px;
+  background:#fff;
+  flex:0 0 auto;
+  box-shadow:var(--shadow-soft);
+}
+
+.container{
+  max-width:1440px;
+  margin:0 auto;
+  padding:28px 18px 110px;
+}
+
+.hero{
+  display:grid;
+  gap:22px;
+  align-items:start;
+  margin-bottom:28px;
+}
+
+.breadcrumbs{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:12px;
+}
+
+h1{
+  margin:0 0 12px;
+  color:var(--navy);
+  font-size:clamp(34px, 4vw, 64px);
+  line-height:1.02;
+  letter-spacing:-1px;
+  max-width:720px;
+}
+
+.subtitle{
+  margin:0 0 14px;
+  color:var(--navy);
+  font-size:clamp(20px, 2vw, 28px);
+  font-weight:800;
+}
+
+.mail-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--pink);
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.stats-wrap{
+  align-self:stretch;
+  display:flex;
+  justify-content:flex-end;
+}
+
+.stats-card{
+  width:100%;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:18px;
+  box-shadow:var(--shadow-soft);
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:12px;
+}
+
+.stat{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px 12px;
+  text-align:center;
+  min-height:92px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.stat .num{
+  display:block;
+  color:var(--navy);
+  font-size:clamp(24px, 2.4vw, 34px);
+  font-weight:900;
+  line-height:1;
+  margin-bottom:8px;
+}
+
+.stat .label{
+  color:var(--navy);
+  font-size:11px;
+  line-height:1.25;
+  font-weight:800;
+  letter-spacing:.3px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:40px;
+  margin-top:30px;
+}
+
+.card-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:.25s ease;
+  position:relative;
+  z-index:1;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 48px rgba(24,27,70,.12);
+}
+
+.card-inner{
+  display:flex;
+  height:100%;
+}
+
+.card-image{
+  flex:0 0 45%;
+  min-height:260px;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#647fe0 0%,#24214f 100%);
+}
+
+.card-image.image-2{
+  background:linear-gradient(135deg,#7b4fd6 0%,#d58ac0 100%);
+}
+
+.card-image::before,
+.card-image::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,.14);
+}
+
+.card-image::before{
+  width:180px;
+  height:180px;
+  top:-50px;
+  right:-50px;
+}
+
+.card-image::after{
+  width:120px;
+  height:120px;
+  bottom:-30px;
+  left:-30px;
+}
+
+.card-overlay{
+  position:absolute;
+  left:20px;
+  right:20px;
+  bottom:20px;
+  color:#fff;
+  font-size:16px;
+  font-weight:700;
+  line-height:1.2;
+  max-width:80%;
+  z-index:2;
+}
+
+.badge{
+  position:absolute;
+  right:14px;
+  bottom:14px;
+  background:rgba(36,33,79,.96);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:800;
+  z-index:2;
+  max-width:fit-content;
+  white-space:nowrap;
+}
+
+.card-body{
+  flex:0 0 55%;
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.card-title{
+  margin:0 0 16px;
+  color:var(--navy);
+  font-size:clamp(28px,2vw,40px);
+  line-height:1;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:-0.5px;
+}
+
+.card-text{
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.6;
+  margin:0;
+}
+
+.filter-bar{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  background:var(--pink);
+  color:#fff;
+  padding:14px 18px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  box-shadow:0 -8px 24px rgba(217,43,83,.2);
+  z-index:30;
+}
+
+.filter-icon{
+  width:18px;
+  height:18px;
+  border:2px solid #fff;
+  border-left:0;
+  border-right:0;
+  position:relative;
+  border-radius:2px;
+}
+
+.filter-icon::before,
+.filter-icon::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#fff;
+  top:50%;
+  box-shadow:-6px 0 0 #fff, 6px 0 0 #fff;
+}
+
+@media (min-width: 900px){
+  .nav-links{
+    display:flex;
+  }
+
+  .nav-actions{
+    display:flex;
+  }
+
+  .mobile-menu{
+    display:none;
+  }
+
+  .hero{
+    grid-template-columns:1.15fr .85fr;
+    gap:34px;
+    align-items:center;
+    margin-top:10px;
+  }
+
+  .stats-wrap{
+    justify-content:flex-end;
+  }
+
+  .stats-card{
+    max-width:560px;
+  }
+
+  .cards{
+    grid-template-columns:repeat(2, 1fr);
+    gap:24px;
+  }
+
+  .card-inner{
+    flex-direction:row;
+    align-items:stretch;
+  }
+
+  .card-image{
+    flex:0 0 50%;
+    min-height:360px;
+  }
+
+  .card-body{
+    flex:0 0 50%;
+    padding:34px 32px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+  }
+
+  .card-title{
+    font-size:clamp(34px, 3vw, 52px);
+    line-height:0.96;
+    max-width:10ch;
+  }
+
+  .card-text{
+    font-size:18px;
+    line-height:1.6;
+    max-width:30ch;
+  }
+
+  .card-overlay{
+    font-size:18px;
+    max-width:72%;
+  }
+
+  .badge{
+    font-size:14px;
+    padding:12px 18px;
+  }
+}
+
+@media (max-width: 899px){
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .stats-wrap{
+    justify-content:stretch;
+  }
+
+  .stats-card{
+    padding:14px;
+  }
+
+  .container{
+    padding:22px 14px 96px;
+  }
+
+  .filter-bar{
+    padding-bottom:18px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .card-inner{
+    flex-direction:column;
+  }
+
+  .card-image{
+    min-height:220px;
+  }
+
+  .card-body{
+    padding:20px;
+  }
+
+  .card-title{
+    font-size:28px;
+  }
+}
+
+@media (max-width: 520px){
+  .card-title{
+    font-size:24px;
+  }
+
+  .card-text{
+    font-size:14px;
+  }
+
+  .card-overlay{
+    font-size:14px;
+  }
+
+  .badge{
+    font-size:12px;
+    padding:8px 12px;
+  }
+}
+
+.contributors-footer{
+    background:#000000;
+    color:#fff;
+    padding:18px 30px;
+    text-align:right;
+    font-size:16px;
+    font-weight:600;
+}
+
+
+  </style>
+</head>
+<body>
+  
+
+ 
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="breadcrumbs">Inicio &nbsp;›&nbsp; Paquetes</div>
+        <h1>Paquetes a Estados Unidos</h1>
+        <p class="subtitle">Cotice y Reserve al Instante</p>
+        
+      </div>
+
+      <div class="stats-wrap">
+        <div class="stats-card">
+          <div class="stats">
+            <div class="stat"><span class="num">17</span><span class="label">EXPERIENCIAS</span></div>
+            <div class="stat"><span class="num">7,006</span><span class="label">YA LO HAN DISFRUTADO</span></div>
+            <div class="stat"><span class="num">4.7</span><span class="label">DE 3,841 OPINIONES</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section class="cards">
+
+        <!-- CARD 1 -->
+
+        <a href="#" class="card-link">
+
+            <article class="card">
+
+                <div class="card-inner">
+
+                    <div class="card-image">
+
+                        <div class="card-overlay">
+                            Nueva York, Washington, ¡y mucho más!
+                        </div>
+
+                        <div class="badge">
+                            ✎ ¡Hazlo a medida!
+                        </div>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <h2 class="card-title">
+                            Lo mejor de la costa este 
+                            
+                        </h2>
+
+                        <p class="card-text">
+                            Descubre Nueva York, Washington, Filadelfia y más
+                            en un recorrido diseñado para vivir la esencia
+                            de la costa este de Estados Unidos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </a>
+
+        <!-- CARD 2 -->
+
+        <a href="#" class="card-link">
+
+            <article class="card">
+
+                <div class="card-inner">
+
+                    <div class="card-image image-2">
+
+                        <div class="card-overlay">
+                            Montreal, Quebec, Ottawa, Toronto y mucho más
+                        </div>
+
+                        <div class="badge">
+                            ✎ ¡Hazlo a medida!
+                        </div>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <h2 class="card-title">
+                            Lo mejor del este de Canadá
+                        </h2>
+
+                        <p class="card-text">
+                            Recorre las ciudades más emblemáticas del este
+                            canadiense y disfruta de una experiencia única
+                            llena de cultura y naturaleza.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </a>
+
+        <!-- CARD 3 -->
+
+        <a href="#" class="card-link">
+
+            <article class="card">
+
+                <div class="card-inner">
+
+                    <div class="card-image">
+
+                        <div class="card-overlay">
+                            Miami, Orlando y mucho más
+                        </div>
+
+                        <div class="badge">
+                            ✎ ¡Hazlo a medida!
+                        </div>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <h2 class="card-title">
+                            Florida y parques temáticos
+                        </h2>
+
+                        <p class="card-text">
+                            Disfruta de playas, compras y los parques más
+                            famosos del mundo en una experiencia inolvidable.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </a>
+
+        <!-- CARD 4 -->
+
+        <a href="#" class="card-link">
+
+            <article class="card">
+
+                <div class="card-inner">
+
+                    <div class="card-image image-2">
+
+                        <div class="card-overlay">
+                            Las Vegas, Gran Cañón y más
+                        </div>
+
+                        <div class="badge">
+                            ✎ ¡Hazlo a medida!
+                        </div>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <h2 class="card-title">
+                            Oeste de Estados Unidos
+                        </h2>
+
+                        <p class="card-text">
+                            Explora desiertos, ciudades icónicas y paisajes
+                            naturales impresionantes en el oeste americano.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </a>
+
+    </section>
+
+</div>
+
+    </article>
+
+</a>
+    </section>
+  </main>
+
+ <footer class="contributors-footer">
+    <strong>Contribuyeron:</strong> <br>
+    Daniela Oxte Moreno
+    <br>Usuario 2 <br>
+    Usuario 3<br>
+    Usuario 4<br>
+    Usuario 5<br>
+    Usuario 6<br>
+</footer>
+</body>
+</html>
