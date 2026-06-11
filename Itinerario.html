@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Viaje Canadá</title>
+
+<style>
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    color:#1f2b6c;
+    background:#fff;
+    line-height:1.6;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+    height:60vh;
+    min-height:400px;
+    background:url('/imagenes/Hero.png') center center/cover no-repeat;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.35);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:clamp(2.5rem,6vw,5rem);
+    text-shadow:0 4px 15px rgba(0,0,0,.4);
+}
+
+/* ==========================
+   PAQUETE
+========================== */
+
+.package{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.package h2{
+    font-size:2.3rem;
+    margin-bottom:35px;
+}
+
+.package-list{
+    list-style:none;
+}
+
+.package-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:18px;
+    font-size:1.1rem;
+}
+
+.check{
+    color:#e91e3a;
+    font-weight:bold;
+    font-size:1.3rem;
+    flex-shrink:0;
+}
+
+/* ==========================
+   ITINERARIO
+========================== */
+
+.itinerario{
+    max-width:1200px;
+    margin:40px auto 80px;
+    padding:0 20px;
+}
+
+.itinerario h2{
+    font-size:2.3rem;
+    margin-bottom:30px;
+}
+
+.accordion{
+    border-top:1px solid #ddd;
+}
+
+.day{
+    border-bottom:1px solid #ddd;
+}
+
+.day-header{
+    width:100%;
+    border:none;
+    background:white;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:22px 0;
+    text-align:left;
+}
+
+.day-left{
+    flex:1;
+}
+
+.day-title{
+    font-size:2rem;
+    font-weight:600;
+}
+
+.day-date{
+    margin-left:15px;
+    font-size:1rem;
+}
+
+.day-name{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-transform:uppercase;
+    font-size:1rem;
+    text-align:right;
+}
+
+.icon{
+    width:32px;
+    height:32px;
+    border:2px solid #e91e3a;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#e91e3a;
+    font-size:1.4rem;
+    font-weight:bold;
+    flex-shrink:0;
+}
+
+.day .icon::before{
+    content:"+";
+}
+
+.day.open .icon::before{
+    content:"−";
+}
+
+.day-content{
+    display:none;
+    padding-bottom:30px;
+}
+
+.day.open .day-content{
+    display:block;
+}
+
+.day-img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.day-content p{
+    margin-bottom:15px;
+}
+
+.day-content ul{
+    padding-left:20px;
+}
+
+.day-content li{
+    margin-bottom:10px;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+    .hero{
+        height:45vh;
+        min-height:300px;
+    }
+
+    .hero-content h1{
+        font-size:2rem;
+    }
+
+    .package{
+        padding:40px 15px;
+    }
+
+    .package h2,
+    .itinerario h2{
+        font-size:1.8rem;
+    }
+
+    .package-list li{
+        font-size:.95rem;
+    }
+
+    .day-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .day-left{
+        width:100%;
+    }
+
+    .day-title{
+        display:block;
+        font-size:1.5rem;
+    }
+
+    .day-date{
+        display:block;
+        margin-left:0;
+        margin-top:5px;
+    }
+
+    .day-name{
+        width:100%;
+        justify-content:space-between;
+        text-align:left;
+        font-size:.9rem;
+    }
+
+    .day-img{
+        height:220px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>El viaje que todos quisieran</h1>
+    </div>
+</section>
+
+<!-- INCLUIDO -->
+
+<section class="package">
+
+    <h2>Incluido en este paquete</h2>
+
+    <ul class="package-list">
+
+        <li><span class="check">✓</span>1 noche de Alojamiento en Montreal</li>
+
+        <li><span class="check">✓</span>2 noches de Alojamiento en Quebec</li>
+
+        <li><span class="check">✓</span>1 noche de Alojamiento en Ottawa</li>
+
+        <li><span class="check">✓</span>3 noches de Alojamiento en Toronto</li>
+
+        <li><span class="check">✓</span>Hotelería categoría 3*</li>
+
+        <li><span class="check">✓</span>Guía oficial de habla hispana</li>
+
+        <li><span class="check">✓</span>Visitas panorámicas</li>
+
+        <li><span class="check">✓</span>Crucero Mil Islas</li>
+
+        <li><span class="check">✓</span>Paseo por Cataratas del Niágara</li>
+
+        <li><span class="check">✓</span>Desayuno diario</li>
+
+    </ul>
+
+</section>
+
+<!-- ITINERARIO -->
+
+<section class="itinerario">
+
+    <h2>Itinerario</h2>
+
+    <div class="accordion">
+
+        <!-- DIA 1 -->
+
+        <div class="day">
+
+            <button class="day-header" onclick="toggleDay(this)">
+
+                <div class="day-left">
+                    <span class="day-title">DÍA 1</span>
+                    <span class="day-date">Miércoles, Julio 1, 2026</span>
+                </div>
+
+                <div class="day-name">
+                    ¡Bienvenidos a Montreal!
+                    <span class="icon"></span>
+                </div>
+
+            </button>
+
+            <div class="day-content">
+
+                <img src="/imagenes/dia1.png" class="day-img">
+
+                <p>Llegada a Montreal y traslado al hotel.</p>
+
+                <ul>
+                    <li>Recepción en aeropuerto.</li>
+                    <li>Traslado al hotel.</li>
+                    <li>Check-in.</li>
+                    <li>Tiempo libre.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- DIA 2 -->
+
+        <div class="day">
+
+            <button class="day-header" onclick="toggleDay(this)">
+
+                <div class="day-left">
+                    <span class="day-title">DÍA 2</span>
+                    <span class="day-date">Jueves, Julio 2, 2026</span>
+                </div>
+
+                <div class="day-name">
+                    Visita panorámica de Montreal
+                    <span class="icon"></span>
+                </div>
+
+            </button>
+
+            <div class="day-content">
+
+                <img src="montreal-city.jpg" class="day-img">
+
+                <p>Recorrido por los principales atractivos de la ciudad.</p>
+
+                <ul>
+                    <li>Centro histórico.</li>
+                    <li>Basílica Notre-Dame.</li>
+                    <li>Puerto Viejo.</li>
+                    <li>Mont Royal.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+function toggleDay(button){
+
+    const currentDay = button.parentElement;
+
+    document.querySelectorAll('.day').forEach(day => {
+
+        if(day !== currentDay){
+            day.classList.remove('open');
+        }
+
+    });
+
+    currentDay.classList.toggle('open');
+}
+
+</script>
+
+</body>
+</html>

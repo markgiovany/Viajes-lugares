@@ -311,17 +311,15 @@ h1{
 }
 
 .card-overlay{
-  position:absolute;
-  left:20px;
-  right:20px;
-  bottom:20px;
-  color:#fff;
-  font-size:16px;
-  font-weight:700;
-  line-height:1.2;
-  max-width:80%;
-  z-index:2;
-}
+    position:absolute;
+    left:20px;
+    bottom:20px;
+    color:#000;
+    background:rgba(255,255,255,.8);
+    padding:6px 10px;
+    border-radius:8px;
+    font-weight:700;
+}x
 
 .badge{
   position:absolute;
@@ -549,7 +547,14 @@ h1{
     font-size:16px;
     font-weight:600;
 }
-
+.card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    position:absolute;
+    top:0;
+    left:0;
+}
 
   </style>
 </head>
@@ -562,7 +567,7 @@ h1{
     <section class="hero">
       <div class="hero-copy">
         <div class="breadcrumbs">Inicio &nbsp;›&nbsp; Paquetes</div>
-        <h1>Paquetes a Estados Unidos</h1>
+        <h1>Paquetes a Quintana Roo</h1>
         <p class="subtitle">Cotice y Reserve al Instante</p>
         
       </div>
@@ -570,9 +575,9 @@ h1{
       <div class="stats-wrap">
         <div class="stats-card">
           <div class="stats">
-            <div class="stat"><span class="num">17</span><span class="label">EXPERIENCIAS</span></div>
-            <div class="stat"><span class="num">7,006</span><span class="label">YA LO HAN DISFRUTADO</span></div>
-            <div class="stat"><span class="num">4.7</span><span class="label">DE 3,841 OPINIONES</span></div>
+            <div class="stat"><span class="num">1</span><span class="label">EXPERIENCIAS</span></div>
+            <div class="stat"><span class="num">10</span><span class="label">YA LO HAN DISFRUTADO</span></div>
+            
           </div>
         </div>
       </div>
@@ -582,44 +587,31 @@ h1{
 
         <!-- CARD 1 -->
 
-        <a href="#" class="card-link">
+       <a href="Itinerario.html" class="card-link">
+    <article class="card">
+        <div class="card-inner">
 
-            <article class="card">
+            <div class="card-image">
+                <img src="/imagenes/fondo.png" alt="Hotel en Quintana Roo">
 
-                <div class="card-inner">
-
-                    <div class="card-image">
-
-                        <div class="card-overlay">
-                            Nueva York, Washington, ¡y mucho más!
-                        </div>
-
-                        <div class="badge">
-                            ✎ ¡Hazlo a medida!
-                        </div>
-
-                    </div>
-
-                    <div class="card-body">
-
-                        <h2 class="card-title">
-                            Lo mejor de la costa este 
-                            
-                        </h2>
-
-                        <p class="card-text">
-                            Descubre Nueva York, Washington, Filadelfia y más
-                            en un recorrido diseñado para vivir la esencia
-                            de la costa este de Estados Unidos.
-                        </p>
-
-                    </div>
-
+                <div class="card-overlay">
+                    Mexico, Quintana Roo
                 </div>
+            </div>
 
-            </article>
+            <div class="card-body">
+                <h2 class="card-title">
+                    Lo mejor del tOUR
+                </h2>
 
-        </a>
+                <p class="card-text">
+                    Descubre todo lo del itinerario accesible
+                </p>
+            </div>
+
+        </div>
+    </article>
+</a>
 
         <!-- CARD 2 -->
 
@@ -661,83 +653,7 @@ h1{
 
         </a>
 
-        <!-- CARD 3 -->
-
-        <a href="#" class="card-link">
-
-            <article class="card">
-
-                <div class="card-inner">
-
-                    <div class="card-image">
-
-                        <div class="card-overlay">
-                            Miami, Orlando y mucho más
-                        </div>
-
-                        <div class="badge">
-                            ✎ ¡Hazlo a medida!
-                        </div>
-
-                    </div>
-
-                    <div class="card-body">
-
-                        <h2 class="card-title">
-                            Florida y parques temáticos
-                        </h2>
-
-                        <p class="card-text">
-                            Disfruta de playas, compras y los parques más
-                            famosos del mundo en una experiencia inolvidable.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </a>
-
-        <!-- CARD 4 -->
-
-        <a href="#" class="card-link">
-
-            <article class="card">
-
-                <div class="card-inner">
-
-                    <div class="card-image image-2">
-
-                        <div class="card-overlay">
-                            Las Vegas, Gran Cañón y más
-                        </div>
-
-                        <div class="badge">
-                            ✎ ¡Hazlo a medida!
-                        </div>
-
-                    </div>
-
-                    <div class="card-body">
-
-                        <h2 class="card-title">
-                            Oeste de Estados Unidos
-                        </h2>
-
-                        <p class="card-text">
-                            Explora desiertos, ciudades icónicas y paisajes
-                            naturales impresionantes en el oeste americano.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </a>
+       
 
     </section>
 
