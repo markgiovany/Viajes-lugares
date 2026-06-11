@@ -25,6 +25,34 @@ body{
     line-height:1.6;
 }
 
+
+.header{
+    width:100%;
+    background:#fff;
+    border-bottom:1px solid #e5e5e5;
+    position:sticky; /* opcional */
+    top:0;
+    z-index:1000;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 20px;
+}
+
+.back-link{
+    color:#1f2b6c;
+    text-decoration:none;
+    font-size:1rem;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back-link:hover{
+    color:#e91e3a;
+}
+
 /* ==========================
    HERO
 ========================== */
@@ -32,7 +60,7 @@ body{
 .hero{
     height:60vh;
     min-height:400px;
-    background:url('/imagenes/Hero.png') center center/cover no-repeat;
+    background:url('imagenes/Hero.png') center center/cover no-repeat;
     position:relative;
     display:flex;
     justify-content:center;
@@ -267,6 +295,15 @@ body{
 </head>
 <body>
 
+
+<header class="header">
+    <div class="container">
+        <a href="/" class="back-link">
+            ← Regresar a Home
+        </a>
+    </div>
+</header>
+
 <!-- HERO -->
 
 <section class="hero">
@@ -335,7 +372,7 @@ body{
 
             <div class="day-content">
 
-                <img src="/imagenes/dia1.png" class="day-img">
+                <img src="imagenes/dia1.png" class="day-img">
 
                 <p>Llegada a Montreal y traslado al hotel.</p>
 
