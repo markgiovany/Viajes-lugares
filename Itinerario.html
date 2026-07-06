@@ -11,25 +11,45 @@
 /* ==========================
    RESET
 ========================== */
+:root{
+    --bg:#0e1624;
+    --bg-2:#101a2a;
+    --gold:#d9a63f;
+    --gold-2:#e0b35c;
+    --text:#f3d28a;
+    --white:#ffffff;
+    --border:rgba(217,166,63,.85);
+    --shadow:0 18px 40px rgba(0,0,0,.25);
+}
 
 *{
-    margin:0;
-    padding:0;
     box-sizing:border-box;
 }
 
-body{
-    font-family:Arial, sans-serif;
-    color:#1f2b6c;
-    background:#fff;
-    line-height:1.6;
+html,body{
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
 }
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+
+
+
+/* Colores del texto */
+
 
 
 .header{
     width:100%;
     background:#fff;
-    border-bottom:1px solid #e5e5e5;
+     background:linear-gradient(180deg,#0f1726 0%,#10192a 100%);
     position:sticky; /* opcional */
     top:0;
     z-index:1000;
@@ -42,7 +62,7 @@ body{
 }
 
 .back-link{
-    color:#1f2b6c;
+    color:#d9a63f;
     text-decoration:none;
     font-size:1rem;
     font-weight:600;
@@ -144,23 +164,31 @@ body{
 }
 
 .accordion{
-    border-top:1px solid #ddd;
+   display:flex;
+    flex-direction:column;
+    gap:18px;
 }
 
 .day{
-    border-bottom:1px solid #ddd;
+    border:none;
 }
 
 .day-header{
-    width:100%;
-    border:none;
-    background:white;
+     width:100%;
+    border:1px solid var(--border);
+    border-radius:18px;      /* Esquinas redondeadas */
+    background:linear-gradient(
+        180deg,
+        rgba(16,26,42,.95) 0%,
+        rgba(14,22,36,.98) 100%
+    );
+    box-shadow:var(--shadow);
     cursor:pointer;
     display:flex;
     justify-content:space-between;
     align-items:center;
     gap:20px;
-    padding:22px 0;
+    padding:22px 28px;
     text-align:left;
 }
 
@@ -169,7 +197,7 @@ body{
 }
 
 .day-title{
-    font-size:2rem;
+    font-size:1.4rem;
     font-weight:600;
 }
 
@@ -210,8 +238,16 @@ body{
 }
 
 .day-content{
-    display:none;
-    padding-bottom:30px;
+     display:none;
+    margin-top:8px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:25px;
+    background:linear-gradient(
+        180deg,
+        rgba(16,26,42,.95) 0%,
+        rgba(14,22,36,.98) 100%
+    );
 }
 
 .day.open .day-content{
@@ -298,6 +334,49 @@ body{
     }
 }
 
+.container,
+.package,
+.itinerario{
+  background:transparent;
+}
+
+
+
+/* Fondos de tarjetas / bloques */
+.day-header,
+.day-content,
+.package-box,
+.card,
+.section-box{
+  background:linear-gradient(180deg, rgba(16,26,42,.95) 0%, rgba(14,22,36,.98) 100%);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+/* Si quieres que ya no se vea blanco */
+.day-header{
+  background:linear-gradient(180deg, rgba(16,26,42,.95) 0%, rgba(14,22,36,.98) 100%);
+  color:var(--gold-2);
+}
+
+.day-content{
+  background:linear-gradient(180deg, rgba(16,26,42,.95) 0%, rgba(14,22,36,.98) 100%);
+}
+
+/* Iconos y detalles dorados */
+.icon,
+.mission-icon,
+.location-badge{
+  border-color:var(--gold);
+  color:var(--gold);
+}
+
+.location-badge{
+  background:var(--gold);
+  color:#1a1a1a;
+}
+
+
 </style>
 </head>
 <body>
@@ -328,25 +407,21 @@ body{
 
     <ul class="package-list">
 
-        <li><span class="check">✓</span>1 noche de Alojamiento en Montreal</li>
+        <li><span class="check">✓</span>Transporte redondo desde el punto de encuentro (Kabah).</li>
 
-        <li><span class="check">✓</span>2 noches de Alojamiento en Quebec</li>
+        <li><span class="check">✓</span>Visita a la Zona Arqueológica El Meco.</li>
 
-        <li><span class="check">✓</span>1 noche de Alojamiento en Ottawa</li>
+        <li><span class="check">✓</span>Desayuno en Carmen Enchiladería (Yaxchilán).</li>
 
-        <li><span class="check">✓</span>3 noches de Alojamiento en Toronto</li>
+        <li><span class="check">✓</span>Entrada y recorrido en el Museo Maya de Cancún.</li>
 
-        <li><span class="check">✓</span>Hotelería categoría 3*</li>
+        <li><span class="check">✓</span>Visita al Cenote Ojo de Agua con tiempo libre para nadar.</li>
 
-        <li><span class="check">✓</span>Guía oficial de habla hispana</li>
+        <li><span class="check">✓</span> Comida en Autóctona con taller interactivo (Yaxchilán).</li>
 
-        <li><span class="check">✓</span>Visitas panorámicas</li>
+        <li><span class="check">✓</span>Tiempo para tomar fotografías y recorrer cada sitio.</li>
 
-        <li><span class="check">✓</span>Crucero Mil Islas</li>
-
-        <li><span class="check">✓</span>Paseo por Cataratas del Niágara</li>
-
-        <li><span class="check">✓</span>Desayuno diario</li>
+   
 
     </ul>
 
@@ -367,12 +442,12 @@ body{
             <button class="day-header" onclick="toggleDay(this)">
 
                 <div class="day-left">
-                    <span class="day-title">DÍA 1</span>
-                    <span class="day-date">Miércoles, Julio 1, 2026</span>
+                    <span class="day-title">Las tiendas Assis Av. kabah </span>
+                    
                 </div>
 
                 <div class="day-name">
-                    ¡Bienvenidos a Montreal!
+                    7:30 am - 7:50 am Punto de reunión
                     <span class="icon"></span>
                 </div>
 
@@ -380,16 +455,11 @@ body{
 
             <div class="day-content">
 
-                <img src="imagenes/dia1.png" class="day-img">
+                <img src="imagenes/dia1.jpg" class="day-img">
 
-                <p>Llegada a Montreal y traslado al hotel.</p>
+                <p>Como punto de inicio y recolección de nuestros viajeros, se les solicita estar en el lugar indicado 15 minutos de anticipación.</p>
 
-                <ul>
-                    <li>Recepción en aeropuerto.</li>
-                    <li>Traslado al hotel.</li>
-                    <li>Check-in.</li>
-                    <li>Tiempo libre.</li>
-                </ul>
+               
 
 
             </div>
@@ -403,12 +473,12 @@ body{
             <button class="day-header" onclick="toggleDay(this)">
 
                 <div class="day-left">
-                    <span class="day-title">DÍA 2</span>
-                    <span class="day-date">Jueves, Julio 2, 2026</span>
+                    <span class="day-title">Llegada a zona arquelogica ”el meco” </span>
+                    
                 </div>
 
                 <div class="day-name">
-                    Visita panorámica de Montreal
+                    7:50 am - 9:00 am
                     <span class="icon"></span>
                 </div>
 
@@ -416,16 +486,11 @@ body{
 
             <div class="day-content">
 
-                <img src="montreal-city.jpg" class="day-img">
+                <img src="imagenes/dia2.jpg" class="day-img">
 
-                <p>Recorrido por los principales atractivos de la ciudad.</p>
+                <p>Como primer punto de visita recorreremos la zona arqueologica del meco ubicado en la carretera Puerto Juarez, López Portillo. En donde los turistas podran reccorr y saber mas acerca de este increible yacimiento maya.</p>
 
-                <ul>
-                    <li>Centro histórico.</li>
-                    <li>Basílica Notre-Dame.</li>
-                    <li>Puerto Viejo.</li>
-                    <li>Mont Royal.</li>
-                </ul>
+                
 
             </div>
 
@@ -433,7 +498,186 @@ body{
 
     </div>
 
+     <h2></h2>
+
+    <div class="accordion">
+
+        <!-- DIA 3 -->
+
+        <div class="day">
+
+            <button class="day-header" onclick="toggleDay(this)">
+
+                <div class="day-left">
+                    <span class="day-title">Desayuno en “Carmen enchiladeria”  </span>
+                    
+                </div>
+
+                <div class="day-name">
+                    9:25 AM - 10:40 AM
+                    <span class="icon"></span>
+                </div>
+
+            </button>
+
+            <div class="day-content">
+
+                <img src="imagenes/dia3.jpg" class="day-img">
+
+                <p>Como primera parada gastronomica Carmen enchiladeria los recibira con la calidez que los identifica disfrutando y consintiendo a su paladar con deliciosos antojitos tipicos veracruzanos; Ete ubicado en la Av. Yaxchilan.</p>
+
+               
+
+
+            </div>
+
+        </div>
+
+        <!-- DIA 4 -->
+
+        <div class="day">
+
+            <button class="day-header" onclick="toggleDay(this)">
+
+                <div class="day-left">
+                    <span class="day-title">Visita al Museo Maya de Cancún</span>
+                    
+                </div>
+
+                <div class="day-name">
+                    11: 10 AM - 12:30 PM
+                    <span class="icon"></span>
+                </div>
+
+            </button>
+
+            <div class="day-content">
+
+                <img src="imagenes/dia4.jpg" class="day-img">
+
+                <p>Ubicado en el kilómetro 16.5 de la  Zona Hotelera de Cancún los turistas podran disfrutar de un recorrido guiado dentro del museo maya, casa de las grandes exibiciones de la culrura, dandoles un taller interactivo y educativo reccorriendo la zona arqueologica de San Miguelito.</p>
+
+             
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h2></h2>
+
+    <div class="accordion">
+
+        <!-- DIA 5 -->
+
+        <div class="day">
+
+            <button class="day-header" onclick="toggleDay(this)">
+
+                <div class="day-left">
+                    <span class="day-title">Cenote Ich Ha “Ojo de Agua”  </span>
+                    
+                </div>
+
+                <div class="day-name">
+                    1:30 PM - 3:40 PM
+                    <span class="icon"></span>
+                </div>
+
+            </button>
+
+            <div class="day-content">
+
+                <img src="imagenes/dia5.jpg" class="day-img">
+
+                <p>Ubicado en la ruta de los cenotes, el cenote Ich Ha mayormente conocido como cenote ojo de agua será el lugar en donde los turistas podran disfrutar de las increibles aguas cristalinas de nuestro cenote contando con zonas de salto y tirolesas para que tengan una de las mejores experiencias acuaticas.</p>
+
+               
+
+
+            </div>
+
+        </div>
+
+        <!-- DIA 6 -->
+
+        <div class="day">
+
+            <button class="day-header" onclick="toggleDay(this)">
+
+                <div class="day-left">
+                    <span class="day-title">Comida en el restaurante Autotocna.</span>
+                    
+                </div>
+
+                <div class="day-name">
+                    4:40 PM - 6:30 PM
+                    <span class="icon"></span>
+                </div>
+
+            </button>
+
+            <div class="day-content">
+
+                <img src="imagenes/dia6.jpg" class="day-img">
+
+                <p> Como segunda y ultima parada gastronomica para Kalubú tours es muy importante el bienestar y disfrute de nuestros viajeros, por lo que les presenta el restaurante Autotocna ubicado en la Av. Yaxchilan.
+Nuestros turistas podran disfrutar de las comidas tipicas de nuestra reguión, sumergiendose en la atmosfera y calidez de los platillos yucatecos  llenos de sabor como de historia, siendo ahi mismo un taller de leyendas de nuestra región.
+</p>
+
+             
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h2></h2>
+
+    <div class="accordion">
+
+        <!-- DIA 7 -->
+
+        <div class="day">
+
+            <button class="day-header" onclick="toggleDay(this)">
+
+                <div class="day-left">
+                    <span class="day-title">Punto de finalización.  </span>
+                    
+                </div>
+
+                <div class="day-name">
+                    6:45 PM
+                    <span class="icon"></span>
+                </div>
+
+            </button>
+
+            <div class="day-content">
+
+                
+
+                <p>Siendo el final de este increible tour nuestro transporte regresara al mismo punto de inicio ubicado en la Av. Kabah frente a tiendas ssis para decender a nuestros turistas dando concluido nuestro servicio.</p>
+
+               
+
+
+            </div>
+
+        </div>
+
+        
+
+    </div>
+
 </section>
+
+
+
+
 
 <script>
 
